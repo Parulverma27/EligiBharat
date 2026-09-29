@@ -1,0 +1,31 @@
+{
+  "slug": "psgs-deg",
+  "scheme": "Pragati Scholarship Scheme For Girl Students (Technical Degree)",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/psgs-deg",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": 800000,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [
+      "student"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "pursuing either the First year of the degree course OR the Second year of the Degree course through lateral entry",
+      "family income not more than ₹ 8,00,000/- per annum",
+      "eligible girls from 13 Union Territories and North Eastern States",
+      "maximum of two girl children in a family"
+    ],
+    "exclusions": [
+      "failed/drops out in a subsequent year",
+      "in receipt of financial assistance from any other source",
+      "gap period between qualifying examination and admission session more than two years"
+    ]
+  }
+}

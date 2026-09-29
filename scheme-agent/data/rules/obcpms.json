@@ -1,0 +1,28 @@
+{
+  "slug": "obcpms",
+  "scheme": "OBC Pre Matric Scholarship-Uttar Pradesh",
+  "level": "State / UT Government",
+  "scope_state": "Uttar Pradesh",
+  "url": "https://www.myscheme.gov.in/schemes/obcpms",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 12,
+    "max_age": 20,
+    "max_annual_income_inr": 200000,
+    "genders": [],
+    "social_categories": [
+      "OBC"
+    ],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "Beneficiary's parents' annual income should not be more than ₹2,00,000/-",
+      "All the children of the applicant's parents will be eligible",
+      "Students cannot receive other scholarships alongside this one (with some exceptions)"
+    ],
+    "exclusions": [
+      "untouchable occupations"
+    ]
+  }
+}

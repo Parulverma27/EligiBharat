@@ -1,0 +1,24 @@
+{
+  "slug": "rgkny",
+  "scheme": "Rajiv Gandhi Kisan Nyay Yojana",
+  "level": "State / UT Government",
+  "scope_state": "Chhattisgarh",
+  "url": "https://www.myscheme.gov.in/schemes/rgkny",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 18,
+    "max_age": null,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [
+      "marginal_farmer",
+      "small_farmer",
+      "large_farmer"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [],
+    "exclusions": []
+  }
+}

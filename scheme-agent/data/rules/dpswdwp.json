@@ -1,0 +1,27 @@
+{
+  "slug": "dpswdwp",
+  "scheme": "Delhi Pension Scheme To Women In Distress (Widow Pension)",
+  "level": "State / UT Government",
+  "scope_state": "Delhi",
+  "url": "https://www.myscheme.gov.in/schemes/dpswdwp",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 18,
+    "max_age": null,
+    "max_annual_income_inr": 100000,
+    "genders": [
+      "female"
+    ],
+    "social_categories": [],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "residence of a minimum of 5 years in Delhi",
+      "annual income less than ₹ 1,00,000/-per annum",
+      "single-operated Aadhar-linked account with any bank in the NCT of Delhi",
+      "not receiving any pension/ financial assistance from Central Govt./ State Govt./MCD or NDMC and other Governmental/local bodies or any other source for this purpose"
+    ],
+    "exclusions": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "msssgc",
+  "scheme": "CBSE Merit Scholarship Scheme For Single Girl Child",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/msssgc",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "secured 60% or more marks in the CBSE Class 10th Examination",
+      "studying Class 11th & 12th in School (affiliated with CBSE)",
+      "tuition fee should not be more than ₹1,500/- per month during the academic year",
+      "total enhancement in tuition fees in such a school shall not be more than 10% of the tuition fee charged",
+      "Indian National",
+      "continue her school studies in Classes 11th and 12th",
+      "passed the CBSE Class 10th Examination in 2019"
+    ],
+    "exclusions": []
+  }
+}

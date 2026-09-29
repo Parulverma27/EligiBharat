@@ -1,0 +1,25 @@
+{
+  "slug": "oapsp",
+  "scheme": "Old Age Pension Scheme - Punjab",
+  "level": "State / UT Government",
+  "scope_state": "Punjab",
+  "url": "https://www.myscheme.gov.in/schemes/oapsp",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 65,
+    "max_age": null,
+    "max_annual_income_inr": 60000,
+    "genders": [
+      "male"
+    ],
+    "social_categories": [],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "Annual Income of Beneficiary should not be more than Rs. 60,000/- per year",
+      "Beneficiary should own any of the below mentioned amount of land :-Maximum 2.5 Acre Nehri or Chahi Land, ORMaximum 5 Acre Barani Land, ORWaterlogged 5 Acre Land"
+    ],
+    "exclusions": []
+  }
+}

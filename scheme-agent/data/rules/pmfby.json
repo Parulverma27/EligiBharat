@@ -1,0 +1,40 @@
+{
+  "slug": "pmfby",
+  "scheme": "Pradhan Mantri Fasal Bima Yojna",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/pmfby",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [
+      "farmer"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "have a valid and authenticated land ownership certificate or a valid land tenancy agreement",
+      "have applied for insurance coverage within the prescribed time frame",
+      "have not received any compensation for the same crop loss from any other source",
+      "have a valid bank account and provide details of their bank account, along with a valid identity proof, at the time of enrollment",
+      "are growing notified crops in a notified area during the season",
+      "have an insurable interest in the crop"
+    ],
+    "exclusions": [
+      "War & kindred perils",
+      "nuclear risks",
+      "riots",
+      "malicious damage",
+      "theft",
+      "act of enmity",
+      "grazed and/or destroyed by domestic and/or wild animals",
+      "Post-Harvest losses",
+      "harvested crop bundled and heaped at a place before threshing",
+      "other preventable risks"
+    ]
+  }
+}

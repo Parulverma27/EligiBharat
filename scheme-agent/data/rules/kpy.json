@@ -1,0 +1,27 @@
+{
+  "slug": "kpy",
+  "scheme": "Kisan Pension Yojana",
+  "level": "State / UT Government",
+  "scope_state": "Uttarakhand",
+  "url": "https://www.myscheme.gov.in/schemes/kpy",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 60,
+    "max_age": null,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [
+      "farmer"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "do farming on the same",
+      "should not get pension benefits from any other sources"
+    ],
+    "exclusions": [
+      "permanent resident of Uttarakhand"
+    ]
+  }
+}

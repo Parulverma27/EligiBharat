@@ -1,0 +1,36 @@
+# The 30 schemes used for rule extraction and evaluation (Milestone 2).
+# One slug per line (the "Scheme Slug" column of the CSV). Lines starting with # are ignored.
+# pension
+apy
+igndps
+ignwps
+nps-tsep
+cmenspy
+mvspy
+dpswdwp
+oap
+oapsp
+kpy
+# scholarships
+pmsfss
+pre-sc
+pre-st
+presm
+mcm-min
+msssgc
+psgs-deg
+gpmsup
+obcpms
+post-dis
+# farmers
+pm-kisan
+pmfby
+kcc
+rgkny
+cmkry
+agr3fmsstf
+agr4fmsscf
+# women / others
+ssy
+pmmvy
+pmuy

@@ -1,0 +1,25 @@
+{
+  "slug": "ignwps",
+  "scheme": "Indira Gandhi National Widow Pension Scheme",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/ignwps",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 40,
+    "max_age": 79,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [
+      "EWS"
+    ],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": true,
+    "other_conditions": [],
+    "exclusions": [
+      "remarriage",
+      "above poverty line"
+    ]
+  }
+}

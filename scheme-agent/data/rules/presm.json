@@ -1,0 +1,34 @@
+{
+  "slug": "presm",
+  "scheme": "Pre Matric Scholarship For Minorities",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/presm",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": 100000,
+    "genders": [],
+    "social_categories": [
+      "Minority"
+    ],
+    "occupations": [
+      "student"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "secured not less than 50% marks in the previous final examination",
+      "not availing any other scholarship by the govt",
+      "not the third sibling in his/her family who has been given this scholarship"
+    ],
+    "exclusions": [
+      "violating school discipline",
+      "availing any other scholarship out of all the available Scholarships of Central Government meant for SC/ST/OBC/minority",
+      "obtaining benefits under this scheme",
+      "obtaining benefits under any other scheme for this purpose",
+      "obtaining a scholarship by false statement"
+    ]
+  }
+}

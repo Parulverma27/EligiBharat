@@ -1,0 +1,31 @@
+{
+  "slug": "cmenspy",
+  "scheme": "Chief Minister Ekal Nari Samman Pension Yojana",
+  "level": "State / UT Government",
+  "scope_state": "Rajasthan",
+  "url": "https://www.myscheme.gov.in/schemes/cmenspy",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 18,
+    "max_age": null,
+    "max_annual_income_inr": 48000,
+    "genders": [
+      "female"
+    ],
+    "social_categories": [],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [],
+    "exclusions": [
+      "Central Government",
+      "Other State Government",
+      "State Government",
+      "State Undertaking",
+      "pensioner of Central Government",
+      "pensioner of Other State Government",
+      "pensioner of State Government",
+      "pensioner of State Undertaking"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "oap",
+  "scheme": "Old Age Pension Scheme",
+  "level": "State / UT Government",
+  "scope_state": "Uttarakhand",
+  "url": "https://www.myscheme.gov.in/schemes/oap",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 60,
+    "max_age": null,
+    "max_annual_income_inr": 48000,
+    "genders": [],
+    "social_categories": [
+      "EWS"
+    ],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": true,
+    "other_conditions": [
+      "son or son is more than 20 years of age",
+      "beneficiary over 60 years of age but not belong to a BPL family"
+    ],
+    "exclusions": [
+      "government employees"
+    ]
+  }
+}

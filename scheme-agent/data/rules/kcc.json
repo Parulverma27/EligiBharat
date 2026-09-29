@@ -1,0 +1,26 @@
+{
+  "slug": "kcc",
+  "scheme": "Kisan Credit Card",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/kcc",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [
+      "farmer",
+      "tenant farmer",
+      "share cropper",
+      "self help group",
+      "joint liability group"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [],
+    "exclusions": []
+  }
+}

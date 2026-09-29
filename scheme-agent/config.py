@@ -22,6 +22,8 @@ COL_SLUG = "Scheme Slug"
 COL_LEVEL = "Level"
 COL_STATE = "State / UT / Ministry"
 COL_URL = "MyScheme URL"
+COL_ELIG = "Eligibility Criteria"
+COL_EXCL = "Exclusions / Ineligibility"
 
 # Text sections we index. Key = label shown to the LLM, value = CSV column.
 # ("Eligibility (General)" is skipped because it duplicates "Eligibility Criteria".)
@@ -42,3 +44,17 @@ CHUNK_OVERLAP = 150
 # Retrieval
 TOP_K = 5
 EMBED_BATCH = 16
+
+# ---- Milestone 2 additions -------------------------------------------------
+# Answer generation (ask.py)
+MAX_NEW_TOKENS = 500      # hard cap so the model can never run away (Hindi loop fix)
+REPEAT_PENALTY = 1.15     # discourages repeating the same phrase
+MAX_DISTANCE = 0.55       # PROVISIONAL: chunks farther than this are ignored.
+                          # (good matches were ~0.38-0.41, off-topic ~0.63-0.67 in Milestone 1.
+                          #  We will calibrate this properly on the labeled test set.)
+
+# Rule extraction
+RULES_DIR = ROOT / "data" / "rules"
+EVAL_SLUGS_FILE = ROOT / "eval_schemes.txt"
+EXTRACT_MAX_TOKENS = 600
+EXTRACT_MAX_INPUT_CHARS = 3500

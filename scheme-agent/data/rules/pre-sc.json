@@ -1,0 +1,27 @@
+{
+  "slug": "pre-sc",
+  "scheme": "Centrally-Sponsored Scheme Of Pre-Matric Scholarship For Scheduled Caste Students Studying In Classes 9th & 10th",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/pre-sc",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": 250000,
+    "genders": [],
+    "social_categories": [
+      "SC"
+    ],
+    "occupations": [
+      "student"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [],
+    "exclusions": [
+      "repeating a class",
+      "false statements"
+    ]
+  }
+}
