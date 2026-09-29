@@ -1,0 +1,29 @@
+{
+  "slug": "agr4fmsscf",
+  "scheme": "AGR 4 (Farm Mechanization) Scheme For SC Farmers",
+  "level": "State / UT Government",
+  "scope_state": "Gujarat",
+  "url": "https://www.myscheme.gov.in/schemes/agr4fmsscf",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [
+      "SC"
+    ],
+    "occupations": [
+      "farmer"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "in 208 talukas where the SMAM scheme is not implemented",
+      "purchases from the authorized dealer of the manufacturer included in the panel"
+    ],
+    "exclusions": [
+      "permanent residents of other states"
+    ]
+  }
+}

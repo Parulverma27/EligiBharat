@@ -1,0 +1,26 @@
+{
+  "slug": "pre-st",
+  "scheme": "Pre Matric Scholarship For Scheduled Tribe Students",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/pre-st",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": 2500000,
+    "genders": [],
+    "social_categories": [
+      "ST"
+    ],
+    "occupations": [
+      "student"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "not availing of any other scholarship by the govt."
+    ],
+    "exclusions": []
+  }
+}

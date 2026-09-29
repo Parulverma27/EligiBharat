@@ -1,0 +1,24 @@
+{
+  "slug": "igndps",
+  "scheme": "Indira Gandhi National Disability Pension Scheme",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/igndps",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 18,
+    "max_age": 79,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [],
+    "requires_disability": true,
+    "requires_bpl": true,
+    "other_conditions": [
+      "physically or mentally disabled person",
+      "more than 80% disability",
+      "dwarf"
+    ],
+    "exclusions": []
+  }
+}

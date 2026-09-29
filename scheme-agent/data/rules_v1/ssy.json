@@ -1,0 +1,27 @@
+{
+  "slug": "ssy",
+  "scheme": "Sukanya Samriddhi Yojana",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/ssy",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 0,
+    "max_age": 10,
+    "max_annual_income_inr": null,
+    "genders": [
+      "female"
+    ],
+    "social_categories": [],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "account holder shall have a single account under this Scheme",
+      "An account under this Scheme may be opened for a maximum of two girl children in one family",
+      "more than two accounts may be opened in a family if such children are born in the first or in the second order of birth or in both",
+      "the above proviso shall not apply to the girl child of the second order of birth if the first order of birth in the family results in two or more surviving girl children"
+    ],
+    "exclusions": []
+  }
+}

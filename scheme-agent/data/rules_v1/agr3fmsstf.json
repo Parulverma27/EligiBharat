@@ -1,0 +1,28 @@
+{
+  "slug": "agr3fmsstf",
+  "scheme": "AGR 3 (Farm Mechanization) Scheme For ST Farmers",
+  "level": "State / UT Government",
+  "scope_state": "Gujarat",
+  "url": "https://www.myscheme.gov.in/schemes/agr3fmsstf",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [
+      "ST"
+    ],
+    "occupations": [
+      "farmer"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "in 208 talukas where the SMAM scheme is not implemented",
+      "benefited/adder under the Agriculture Support Program in Tribal Area Sub Plan & Dispersed Tribes (TASP)",
+      "purchases the agricultural equipment from the authorized manufacturer"
+    ],
+    "exclusions": []
+  }
+}

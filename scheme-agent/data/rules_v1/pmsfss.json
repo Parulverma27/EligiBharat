@@ -1,0 +1,31 @@
+{
+  "slug": "pmsfss",
+  "scheme": "Post-Matric Scholarship for SC students",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/pmsfss",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": 250000,
+    "genders": [],
+    "social_categories": [
+      "SC"
+    ],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "passed Matriculation, Higher Secondary, or a higher examination of a recognized university or Board of Secondary Education",
+      "parents' or guardians' income does not exceed ₹ 2,50,000/- per annum",
+      "studying in the same stage of education in a different subject after passing one stage of education is not eligible",
+      "studying through correspondence or online courses is eligible",
+      "all children of any parent or guardian are entitled to receive benefits of the scheme",
+      "a scholarship holder under this scheme will not hold any other scholarship or stipend"
+    ],
+    "exclusions": [
+      "government employees"
+    ]
+  }
+}

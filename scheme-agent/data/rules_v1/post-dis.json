@@ -1,0 +1,33 @@
+{
+  "slug": "post-dis",
+  "scheme": "Post Matric Scholarship Students With Disabilities",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/post-dis",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": 250000,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [
+      "student"
+    ],
+    "requires_disability": true,
+    "requires_bpl": null,
+    "other_conditions": [
+      "disabled percentage of 40% or above",
+      "total annual income of parents/guardians not exceeding ₹ 2.50 Lakh per Annum",
+      "not availing any other scholarship by the govt",
+      "not the third sibling of the family who has been given this scholarship"
+    ],
+    "exclusions": [
+      "more than two students from a family",
+      "second child is a twin",
+      "cannot hold any other scholarship or stipend",
+      "furnishes false information / document",
+      "has to repeat a class"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "pmmvy",
+  "scheme": "Pradhan Mantri Matru Vandana Yojana",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/pmmvy",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 19,
+    "max_age": null,
+    "max_annual_income_inr": 800000,
+    "genders": [
+      "female"
+    ],
+    "social_categories": [
+      "SC",
+      "ST",
+      "OBC",
+      "Minority",
+      "EWS",
+      "OBC",
+      "OBC",
+      "OBC"
+    ],
+    "occupations": [
+      "employed"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "first live birth",
+      "second girl child",
+      "second pregnancy",
+      "partial disability",
+      "full disability",
+      "beneficiary under PMJAY",
+      "beneficiary under Kisan Samman Nidhi",
+      "beneficiary under MGNREGA",
+      "beneficiary under NFSA",
+      "beneficiary under Ayushman Bharat",
+      "beneficiary under Pradhan Mantri Jan Aarogya Yojana",
+      "beneficiary under PMMVY 2.0"
+    ],
+    "exclusions": [
+      "beneficiary's husband's Aadhaar is not mandatory",
+      "beneficiary in regular employment with the Central Government or State Government or Public Sector Undertaking or those who are in receipt of similar benefits under any law for the time being in force"
+    ]
+  }
+}

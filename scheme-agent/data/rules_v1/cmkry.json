@@ -1,0 +1,32 @@
+{
+  "slug": "cmkry",
+  "scheme": "Chief Minister's Krishi Rinn Yojana",
+  "level": "State / UT Government",
+  "scope_state": "Arunachal Pradesh",
+  "url": "https://www.myscheme.gov.in/schemes/cmkry",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [
+      "farmer"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "good repayment track record",
+      "promptly repay their short-term production credit (crop loan) within one year",
+      "crop loans or Kisan Credit Card limits up to Rs. 3.00 lakhs",
+      "fulfill the eligibility criteria and documentation requirements set by the banks"
+    ],
+    "exclusions": [
+      "production of perennial food crops",
+      "production of plantation crops",
+      "engaged in the production of excluded crops",
+      "non-farmers or individuals not actively engaged in agricultural activities"
+    ]
+  }
+}

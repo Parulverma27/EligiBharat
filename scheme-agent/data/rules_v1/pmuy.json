@@ -1,0 +1,25 @@
+{
+  "slug": "pmuy",
+  "scheme": "Pradhan Mantri Ujjwala Yojana",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/pmuy",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "not falling in the above 2 categories",
+      "submit 14-point declaration"
+    ],
+    "exclusions": [
+      "male member"
+    ]
+  }
+}

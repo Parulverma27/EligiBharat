@@ -1,0 +1,22 @@
+{
+  "slug": "apy",
+  "scheme": "Atal Pension Yojana",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/apy",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 18,
+    "max_age": 40,
+    "max_annual_income_inr": null,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [],
+    "exclusions": [
+      "income tax payer"
+    ]
+  }
+}

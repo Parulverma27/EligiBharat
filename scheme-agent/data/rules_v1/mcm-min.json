@@ -1,0 +1,33 @@
+{
+  "slug": "mcm-min",
+  "scheme": "Merit Cum Means Based Scholarship For Students Belonging To The Minority Communities",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/mcm-min",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": null,
+    "max_age": null,
+    "max_annual_income_inr": 250000,
+    "genders": [],
+    "social_categories": [
+      "Minority"
+    ],
+    "occupations": [
+      "student"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "secured not less than 50% marks (or equivalent grade) in the previous final examination"
+    ],
+    "exclusions": [
+      "violates school discipline",
+      "any other terms and conditions of the scholarship",
+      "any other scholarship out of all the available Scholarships of Central Government meant for SC/ST/OBC/minority",
+      "obtained scholarship by false statement",
+      "more than two students from a family",
+      "any other scheme for this purpose"
+    ]
+  }
+}

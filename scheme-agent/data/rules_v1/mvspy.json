@@ -1,0 +1,30 @@
+{
+  "slug": "mvspy",
+  "scheme": "Mukhyamantri Vriddhjan Samman Pension Yojana",
+  "level": "State / UT Government",
+  "scope_state": "Rajasthan",
+  "url": "https://www.myscheme.gov.in/schemes/mvspy",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 55,
+    "max_age": 58,
+    "max_annual_income_inr": 48000,
+    "genders": [
+      "female"
+    ],
+    "social_categories": [
+      "SC",
+      "ST",
+      "OBC",
+      "EWS",
+      "Minority"
+    ],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "people belonging to BPL/Antyodaya/Aastha Card holding families/Sahariya/Kathauri, Khairwa castes have been exempted from the income-related condition"
+    ],
+    "exclusions": []
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "nps-tsep",
+  "scheme": "National Pension Scheme For Traders And Self Employed Persons",
+  "level": "Central Government",
+  "scope_state": null,
+  "url": "https://www.myscheme.gov.in/schemes/nps-tsep",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 18,
+    "max_age": 40,
+    "max_annual_income_inr": 1500000,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [
+      "self-employed shop owner",
+      "retail owner",
+      "vyapari"
+    ],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [],
+    "exclusions": [
+      "Covered under any National Pension Scheme contributed by the Central Government",
+      "member of EPFO/NPS/ESIC",
+      "income taxpayer",
+      "Enrolled under Pradhan Mantri Shram Yogi Maandhan Yojana",
+      "Enrolled under Pradhan Mantri Kisan Maandhan Yojana"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "gpmsup",
+  "scheme": "General Pre Matric Scholarship-Uttar Pradesh",
+  "level": "State / UT Government",
+  "scope_state": "Uttar Pradesh",
+  "url": "https://www.myscheme.gov.in/schemes/gpmsup",
+  "model": "qwen2.5:3b",
+  "rules": {
+    "min_age": 12,
+    "max_age": 20,
+    "max_annual_income_inr": 250000,
+    "genders": [],
+    "social_categories": [],
+    "occupations": [],
+    "requires_disability": null,
+    "requires_bpl": null,
+    "other_conditions": [
+      "students cannot receive other scholarships alongside this one (with some exceptions)"
+    ],
+    "exclusions": [
+      "beneficiary's parents' annual income is more than ₹250000/-",
+      "beneficiary is a dependent of people in traditionally untouchable occupations",
+      "beneficiary's age limit is 12 to 20 years old (as of July 1st)",
+      "beneficiary is not a resident of Uttar Pradesh"
+    ]
+  }
+}
