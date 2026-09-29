@@ -6,10 +6,14 @@ Examples:
 """
 import argparse
 import json
+import sys
 
 import config
 from checker import check
 from schema import SchemeRules, UserProfile
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 
 def load(path):
