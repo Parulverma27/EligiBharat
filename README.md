@@ -1,3 +1,24 @@
+# EligiBharat
+
+EligiBharat: an open-source, fully local (no API keys) assistant that helps people check which Indian government schemes they may be eligible for. Runs on Ollama + ChromaDB + Python.
+
+## Status
+
+- **Milestone 1 (Baseline RAG)**: Done.
+- **Milestone 2 (Rule Extraction + Checker)**: Done with known limitations. Evaluation and agent coming next.
+
+> The checker currently has known errors; accuracy has not been measured yet.
+
+## Data Credits
+
+Dataset `gov_myscheme_data.csv` from GitHub repository [Aryan-Pardeshi/gov-myscheme-dataset](https://github.com/Aryan-Pardeshi/gov-myscheme-dataset), whose underlying data comes from [myscheme.gov.in](https://www.myscheme.gov.in/) (Government of India).
+
+## Disclaimer
+
+This is a student project. It is NOT an official government tool and is not affiliated with any government body. Results may be wrong or outdated; always verify on the official scheme page before applying.
+
+---
+
 # Scheme Agent: Milestone 1 (Baseline RAG)
 
 Ask questions about Indian government schemes. Runs 100% locally and free using Ollama + ChromaDB.
