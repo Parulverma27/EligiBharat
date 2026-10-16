@@ -35,6 +35,7 @@ def build_chunks(df: pd.DataFrame):
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--slugs-file", help="index only the slugs listed in this file")
     ap.add_argument("--limit", type=int, default=100, help="number of schemes to index")
     ap.add_argument("--all", action="store_true", help="index all schemes")
     ap.add_argument("--seed", type=int, default=42)
@@ -42,7 +43,12 @@ def main():
 
     df = pd.read_csv(config.DATA_CSV, encoding="utf-8-sig")
     print(f"Loaded {len(df)} schemes.")
-    if not args.all:
+    if args.slugs_file:
+        slugs = [l.strip() for l in open(args.slugs_file, encoding="utf-8")
+                 if l.strip() and not l.startswith("#")]
+        df = df[df[config.COL_SLUG].isin(slugs)]
+        print(f"Using {len(df)} schemes from {args.slugs_file}.")
+    elif not args.all:
         df = df.sample(n=min(args.limit, len(df)), random_state=args.seed)
         print(f"Using a random sample of {len(df)} schemes (seed={args.seed}).")
 
