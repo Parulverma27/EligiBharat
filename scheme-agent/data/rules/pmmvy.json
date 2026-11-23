@@ -12,21 +12,20 @@
     "genders": [
       "female"
     ],
-    "social_categories": [
-      "SC",
-      "ST",
-      "OBC",
-      "Minority",
-      "EWS",
-      "OBC",
-      "OBC",
-      "OBC"
-    ],
+    "social_categories": [],
     "occupations": [
       "employed"
     ],
     "requires_disability": null,
+    "min_disability_percent": null,
     "requires_bpl": null,
+    "requires_student": null,
+    "education_stages": [],
+    "marital_statuses": [],
+    "max_land_hectares": null,
+    "excluded_genders": [],
+    "excludes_govt_employee": true,
+    "excludes_income_tax_payer": null,
     "other_conditions": [
       "first live birth",
       "second girl child",

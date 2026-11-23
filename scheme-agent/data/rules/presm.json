@@ -7,7 +7,7 @@
   "model": "qwen2.5:3b",
   "rules": {
     "min_age": null,
-    "max_age": null,
+    "max_age": 25,
     "max_annual_income_inr": 100000,
     "genders": [],
     "social_categories": [
@@ -17,7 +17,15 @@
       "student"
     ],
     "requires_disability": null,
+    "min_disability_percent": null,
     "requires_bpl": null,
+    "requires_student": true,
+    "education_stages": [],
+    "marital_statuses": [],
+    "max_land_hectares": null,
+    "excluded_genders": [],
+    "excludes_govt_employee": null,
+    "excludes_income_tax_payer": null,
     "other_conditions": [
       "secured not less than 50% marks in the previous final examination",
       "not availing any other scholarship by the govt",

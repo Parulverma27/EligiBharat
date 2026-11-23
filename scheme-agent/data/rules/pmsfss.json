@@ -13,9 +13,19 @@
     "social_categories": [
       "SC"
     ],
-    "occupations": [],
+    "occupations": [
+      "student"
+    ],
     "requires_disability": null,
+    "min_disability_percent": null,
     "requires_bpl": null,
+    "requires_student": true,
+    "education_stages": [],
+    "marital_statuses": [],
+    "max_land_hectares": null,
+    "excluded_genders": [],
+    "excludes_govt_employee": null,
+    "excludes_income_tax_payer": null,
     "other_conditions": [
       "passed Matriculation, Higher Secondary, or a higher examination of a recognized university or Board of Secondary Education",
       "parents' or guardians' income does not exceed ₹ 2,50,000/- per annum",

@@ -7,21 +7,21 @@
   "model": "qwen2.5:3b",
   "rules": {
     "min_age": 55,
-    "max_age": 58,
+    "max_age": null,
     "max_annual_income_inr": 48000,
-    "genders": [
-      "female"
-    ],
-    "social_categories": [
-      "SC",
-      "ST",
-      "OBC",
-      "EWS",
-      "Minority"
-    ],
+    "genders": [],
+    "social_categories": [],
     "occupations": [],
     "requires_disability": null,
+    "min_disability_percent": null,
     "requires_bpl": null,
+    "requires_student": null,
+    "education_stages": [],
+    "marital_statuses": [],
+    "max_land_hectares": null,
+    "excluded_genders": [],
+    "excludes_govt_employee": null,
+    "excludes_income_tax_payer": null,
     "other_conditions": [
       "people belonging to BPL/Antyodaya/Aastha Card holding families/Sahariya/Kathauri, Khairwa castes have been exempted from the income-related condition"
     ],

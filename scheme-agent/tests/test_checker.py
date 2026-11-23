@@ -1,9 +1,10 @@
-"""Plain-Python tests for the rule checker. Run:  python tests/test_checker.py"""
+"""Plain-Python tests for the rule checker (v1 and v2 features). Run: python tests/test_checker.py"""
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from checker import check, occupation_matches
+from extract_rules import validate_and_repair_rules
 from schema import SchemeRules, UserProfile
 
 OLD_AGE = SchemeRules(min_age=60, max_annual_income_inr=100000)
@@ -59,6 +60,44 @@ def test_occupation_synonyms():
     r = check(UserProfile(occupation="teacher"), FARMER)
     assert r.status == "not_eligible"
     assert check(UserProfile(occupation="farmer"), FARMER).caveats == ["Not eligible if: income tax payers"]
+
+
+def test_v2_possibly_eligible_status():
+    r = check(
+        UserProfile(age=40, gender="female", categories=["SC"]),
+        WIDOW_SC,
+        strict_possibly_eligible=True,
+    )
+    assert r.status == "possibly_eligible"
+    r_no_caveats = check(
+        UserProfile(age=65, annual_income_inr=50000),
+        OLD_AGE,
+        strict_possibly_eligible=True,
+    )
+    assert r_no_caveats.status == "eligible"
+
+
+def test_v2_checkable_exclusions_and_student():
+    ujjwala = SchemeRules(genders=["female"], excluded_genders=["male"], min_age=18)
+    assert check(UserProfile(age=30, gender="male"), ujjwala).status == "not_eligible"
+    assert check(UserProfile(age=30, gender="female"), ujjwala).status == "eligible"
+
+    scholarship = SchemeRules(requires_student=True, genders=["female"])
+    assert check(UserProfile(age=68, gender="female", occupation="unemployed"), scholarship).status == "not_eligible"
+    assert check(UserProfile(age=16, gender="female", occupation="student"), scholarship).status == "eligible"
+
+
+def test_v2_validate_and_repair_rules():
+    raw = SchemeRules(max_annual_income_inr=2500000)
+    fixed = validate_and_repair_rules(
+        raw,
+        "CBSE Merit Scholarship Scheme For Single Girl Child",
+        "The applicant should be the single girl child studying Class 11th & 12th. Income not exceed ₹ 2.50 Lakh.",
+    )
+    assert fixed.genders == ["female"]
+    assert fixed.requires_student is True
+    assert "student" in fixed.occupations
+    assert fixed.max_annual_income_inr == 250000
 
 
 if __name__ == "__main__":

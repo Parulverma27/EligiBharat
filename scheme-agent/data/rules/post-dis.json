@@ -15,7 +15,15 @@
       "student"
     ],
     "requires_disability": true,
+    "min_disability_percent": 40,
     "requires_bpl": null,
+    "requires_student": true,
+    "education_stages": [],
+    "marital_statuses": [],
+    "max_land_hectares": null,
+    "excluded_genders": [],
+    "excludes_govt_employee": null,
+    "excludes_income_tax_payer": null,
     "other_conditions": [
       "disabled percentage of 40% or above",
       "total annual income of parents/guardians not exceeding ₹ 2.50 Lakh per Annum",

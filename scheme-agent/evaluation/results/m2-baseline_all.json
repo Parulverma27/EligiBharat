@@ -1,0 +1,476 @@
+{
+  "summary": {
+    "rules_dir": "d:\\Projects\\EligiBharat\\scheme-agent\\data\\rules_v1",
+    "split_filter": "all",
+    "overall": {
+      "total": 90,
+      "correct": 79,
+      "accuracy": 0.8778,
+      "wilson_95_ci": [
+        0.7943,
+        0.9304
+      ],
+      "tp_eligible": 29,
+      "tn_not_eligible": 50,
+      "false_not_eligible_count": 4,
+      "false_not_eligible_rate": 0.1212,
+      "false_eligible_count": 7,
+      "false_eligible_with_caveats": 7,
+      "possibly_eligible_on_true_eligible": 0,
+      "possibly_eligible_on_true_not_eligible": 0,
+      "need_more_info_count": 0,
+      "precision_eligible": 0.8056,
+      "recall_eligible": 0.8788,
+      "f1_eligible": 0.8406
+    },
+    "by_split": {
+      "dev": {
+        "total": 60,
+        "correct": 50,
+        "accuracy": 0.8333,
+        "wilson_95_ci": [
+          0.7197,
+          0.9069
+        ],
+        "tp_eligible": 20,
+        "tn_not_eligible": 30,
+        "false_not_eligible_count": 3,
+        "false_not_eligible_rate": 0.1304,
+        "false_eligible_count": 7,
+        "false_eligible_with_caveats": 7,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 0.7407,
+        "recall_eligible": 0.8696,
+        "f1_eligible": 0.8
+      },
+      "test": {
+        "total": 30,
+        "correct": 29,
+        "accuracy": 0.9667,
+        "wilson_95_ci": [
+          0.8333,
+          0.9941
+        ],
+        "tp_eligible": 9,
+        "tn_not_eligible": 20,
+        "false_not_eligible_count": 1,
+        "false_not_eligible_rate": 0.1,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 0.9,
+        "f1_eligible": 0.9474
+      }
+    },
+    "by_group": {
+      "farmer": {
+        "total": 21,
+        "correct": 21,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.8454,
+          1.0
+        ],
+        "tp_eligible": 9,
+        "tn_not_eligible": 12,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      },
+      "pension": {
+        "total": 30,
+        "correct": 27,
+        "accuracy": 0.9,
+        "wilson_95_ci": [
+          0.7438,
+          0.9654
+        ],
+        "tp_eligible": 8,
+        "tn_not_eligible": 19,
+        "false_not_eligible_count": 3,
+        "false_not_eligible_rate": 0.2727,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 0.7273,
+        "f1_eligible": 0.8421
+      },
+      "scholarship": {
+        "total": 30,
+        "correct": 24,
+        "accuracy": 0.8,
+        "wilson_95_ci": [
+          0.6269,
+          0.905
+        ],
+        "tp_eligible": 9,
+        "tn_not_eligible": 15,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 6,
+        "false_eligible_with_caveats": 6,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 0.6,
+        "recall_eligible": 1.0,
+        "f1_eligible": 0.75
+      },
+      "women_family": {
+        "total": 9,
+        "correct": 7,
+        "accuracy": 0.7778,
+        "wilson_95_ci": [
+          0.4526,
+          0.9368
+        ],
+        "tp_eligible": 3,
+        "tn_not_eligible": 4,
+        "false_not_eligible_count": 1,
+        "false_not_eligible_rate": 0.25,
+        "false_eligible_count": 1,
+        "false_eligible_with_caveats": 1,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 0.75,
+        "recall_eligible": 0.75,
+        "f1_eligible": 0.75
+      }
+    },
+    "extraction_review": {
+      "yes": 12,
+      "partly": 12,
+      "no": 6,
+      "unlabeled": 0
+    },
+    "error_count": 11
+  },
+  "errors": [
+    {
+      "case_id": "C007",
+      "split": "dev",
+      "group": "pension",
+      "slug": "ignwps",
+      "scheme": "Indira Gandhi National Widow Pension Scheme",
+      "persona_id": "P01",
+      "persona_description": "68-year-old SC widow in Rajasthan, annual income Rs 36,000, BPL household, unemployed.",
+      "human_label": "eligible",
+      "pred_status": "not_eligible",
+      "pred_binary": "not_eligible",
+      "caveat_count": 2,
+      "passed": [
+        "age 68 is within the allowed range",
+        "BPL requirement met"
+      ],
+      "failed": [
+        "scheme is for EWS"
+      ],
+      "missing": [],
+      "caveats": [
+        "Not eligible if: remarriage",
+        "Not eligible if: above poverty line"
+      ],
+      "label_notes": "Widow aged 68 (within 40-79) and BPL household."
+    },
+    {
+      "case_id": "C013",
+      "split": "dev",
+      "group": "pension",
+      "slug": "mvspy",
+      "scheme": "Mukhyamantri Vriddhjan Samman Pension Yojana",
+      "persona_id": "P01",
+      "persona_description": "68-year-old SC widow in Rajasthan, annual income Rs 36,000, BPL household, unemployed.",
+      "human_label": "eligible",
+      "pred_status": "not_eligible",
+      "pred_binary": "not_eligible",
+      "caveat_count": 1,
+      "passed": [
+        "state is Rajasthan",
+        "income is within the limit",
+        "gender matches",
+        "social category matches"
+      ],
+      "failed": [
+        "age 68 is above the maximum 58"
+      ],
+      "missing": [],
+      "caveats": [
+        "Also required: people belonging to BPL/Antyodaya/Aastha Card holding families/Sahariya/Kathauri, Khairwa castes have been exempted from the income-related condition"
+      ],
+      "label_notes": "Rajasthan resident, female aged 68 (>=55), income Rs 36,000 (<48,000) and BPL."
+    },
+    {
+      "case_id": "C019",
+      "split": "dev",
+      "group": "pension",
+      "slug": "oap",
+      "scheme": "Old Age Pension Scheme",
+      "persona_id": "P07",
+      "persona_description": "64-year-old male marginal farmer (1.2 hectares) in Uttarakhand, General category, BPL, income Rs 35,000/yr.",
+      "human_label": "eligible",
+      "pred_status": "not_eligible",
+      "pred_binary": "not_eligible",
+      "caveat_count": 3,
+      "passed": [
+        "state is Uttarakhand",
+        "age 64 is within the allowed range",
+        "income is within the limit",
+        "BPL requirement met"
+      ],
+      "failed": [
+        "scheme is for EWS"
+      ],
+      "missing": [],
+      "caveats": [
+        "Also required: son or son is more than 20 years of age",
+        "Also required: beneficiary over 60 years of age but not belong to a BPL family",
+        "Not eligible if: government employees"
+      ],
+      "label_notes": "Resident of Uttarakhand, age 64 (>=60), BPL and income Rs 35,000 (<48,000/yr)."
+    },
+    {
+      "case_id": "C024",
+      "split": "dev",
+      "group": "scholarship",
+      "slug": "pmsfss",
+      "scheme": "Post-Matric Scholarship for SC students",
+      "persona_id": "P01",
+      "persona_description": "68-year-old SC widow in Rajasthan, annual income Rs 36,000, BPL household, unemployed.",
+      "human_label": "not_eligible",
+      "pred_status": "eligible",
+      "pred_binary": "eligible",
+      "caveat_count": 7,
+      "passed": [
+        "income is within the limit",
+        "social category matches"
+      ],
+      "failed": [],
+      "missing": [],
+      "caveats": [
+        "Also required: passed Matriculation, Higher Secondary, or a higher examination of a recognized university or Board of Secondary Education",
+        "Also required: parents' or guardians' income does not exceed ₹ 2,50,000/- per annum",
+        "Also required: studying in the same stage of education in a different subject after passing one stage of education is not eligible",
+        "Also required: studying through correspondence or online courses is eligible",
+        "Also required: all children of any parent or guardian are entitled to receive benefits of the scheme",
+        "Also required: a scholarship holder under this scheme will not hold any other scholarship or stipend",
+        "Not eligible if: government employees"
+      ],
+      "label_notes": "68-year-old unemployed widow (not a student)."
+    },
+    {
+      "case_id": "C035",
+      "split": "dev",
+      "group": "scholarship",
+      "slug": "msssgc",
+      "scheme": "CBSE Merit Scholarship Scheme For Single Girl Child",
+      "persona_id": "P11",
+      "persona_description": "15-year-old ST boy studying in Class 9 in Jharkhand, parental income Rs 1,50,000/yr.",
+      "human_label": "not_eligible",
+      "pred_status": "eligible",
+      "pred_binary": "eligible",
+      "caveat_count": 7,
+      "passed": [],
+      "failed": [],
+      "missing": [],
+      "caveats": [
+        "Also required: secured 60% or more marks in the CBSE Class 10th Examination",
+        "Also required: studying Class 11th & 12th in School (affiliated with CBSE)",
+        "Also required: tuition fee should not be more than ₹1,500/- per month during the academic year",
+        "Also required: total enhancement in tuition fees in such a school shall not be more than 10% of the tuition fee charged",
+        "Also required: Indian National",
+        "Also required: continue her school studies in Classes 11th and 12th",
+        "Also required: passed the CBSE Class 10th Examination in 2019"
+      ],
+      "label_notes": "Male school student (scheme is only for single girl child)."
+    },
+    {
+      "case_id": "C036",
+      "split": "dev",
+      "group": "scholarship",
+      "slug": "msssgc",
+      "scheme": "CBSE Merit Scholarship Scheme For Single Girl Child",
+      "persona_id": "P01",
+      "persona_description": "68-year-old SC widow in Rajasthan, annual income Rs 36,000, BPL household, unemployed.",
+      "human_label": "not_eligible",
+      "pred_status": "eligible",
+      "pred_binary": "eligible",
+      "caveat_count": 7,
+      "passed": [],
+      "failed": [],
+      "missing": [],
+      "caveats": [
+        "Also required: secured 60% or more marks in the CBSE Class 10th Examination",
+        "Also required: studying Class 11th & 12th in School (affiliated with CBSE)",
+        "Also required: tuition fee should not be more than ₹1,500/- per month during the academic year",
+        "Also required: total enhancement in tuition fees in such a school shall not be more than 10% of the tuition fee charged",
+        "Also required: Indian National",
+        "Also required: continue her school studies in Classes 11th and 12th",
+        "Also required: passed the CBSE Class 10th Examination in 2019"
+      ],
+      "label_notes": "68-year-old unemployed widow (not a school student)."
+    },
+    {
+      "case_id": "C038",
+      "split": "dev",
+      "group": "scholarship",
+      "slug": "psgs-deg",
+      "scheme": "Pragati Scholarship Scheme For Girl Students (Technical Degree)",
+      "persona_id": "P12",
+      "persona_description": "20-year-old Minority & OBC college student (B.Tech) in Kerala, parental income Rs 90,000/yr.",
+      "human_label": "not_eligible",
+      "pred_status": "eligible",
+      "pred_binary": "eligible",
+      "caveat_count": 7,
+      "passed": [
+        "income is within the limit",
+        "occupation matches"
+      ],
+      "failed": [],
+      "missing": [],
+      "caveats": [
+        "Also required: pursuing either the First year of the degree course OR the Second year of the Degree course through lateral entry",
+        "Also required: family income not more than ₹ 8,00,000/- per annum",
+        "Also required: eligible girls from 13 Union Territories and North Eastern States",
+        "Also required: maximum of two girl children in a family",
+        "Not eligible if: failed/drops out in a subsequent year",
+        "Not eligible if: in receipt of financial assistance from any other source",
+        "Not eligible if: gap period between qualifying examination and admission session more than two years"
+      ],
+      "label_notes": "Male B.Tech student (scheme is only for girl students)."
+    },
+    {
+      "case_id": "C040",
+      "split": "dev",
+      "group": "scholarship",
+      "slug": "gpmsup",
+      "scheme": "General Pre Matric Scholarship-Uttar Pradesh",
+      "persona_id": "P13",
+      "persona_description": "14-year-old OBC boy studying in Class 9 in Uttar Pradesh, parental income Rs 1,40,000/yr.",
+      "human_label": "not_eligible",
+      "pred_status": "eligible",
+      "pred_binary": "eligible",
+      "caveat_count": 5,
+      "passed": [
+        "state is Uttar Pradesh",
+        "age 14 is within the allowed range",
+        "income is within the limit"
+      ],
+      "failed": [],
+      "missing": [],
+      "caveats": [
+        "Also required: students cannot receive other scholarships alongside this one (with some exceptions)",
+        "Not eligible if: beneficiary's parents' annual income is more than ₹250000/-",
+        "Not eligible if: beneficiary is a dependent of people in traditionally untouchable occupations",
+        "Not eligible if: beneficiary's age limit is 12 to 20 years old (as of July 1st)",
+        "Not eligible if: beneficiary is not a resident of Uttar Pradesh"
+      ],
+      "label_notes": "UP student aged 14 with income <=2.5L, but OBC category (scheme is for General category)."
+    },
+    {
+      "case_id": "C041",
+      "split": "dev",
+      "group": "scholarship",
+      "slug": "gpmsup",
+      "scheme": "General Pre Matric Scholarship-Uttar Pradesh",
+      "persona_id": "P03",
+      "persona_description": "16-year-old SC female school student (Class 10) in Uttar Pradesh, family income Rs 1,20,000/yr.",
+      "human_label": "not_eligible",
+      "pred_status": "eligible",
+      "pred_binary": "eligible",
+      "caveat_count": 5,
+      "passed": [
+        "state is Uttar Pradesh",
+        "age 16 is within the allowed range",
+        "income is within the limit"
+      ],
+      "failed": [],
+      "missing": [],
+      "caveats": [
+        "Also required: students cannot receive other scholarships alongside this one (with some exceptions)",
+        "Not eligible if: beneficiary's parents' annual income is more than ₹250000/-",
+        "Not eligible if: beneficiary is a dependent of people in traditionally untouchable occupations",
+        "Not eligible if: beneficiary's age limit is 12 to 20 years old (as of July 1st)",
+        "Not eligible if: beneficiary is not a resident of Uttar Pradesh"
+      ],
+      "label_notes": "UP student aged 16 with income <=2.5L, but SC category (scheme is for General category)."
+    },
+    {
+      "case_id": "C060",
+      "split": "dev",
+      "group": "women_family",
+      "slug": "pmuy",
+      "scheme": "Pradhan Mantri Ujjwala Yojana",
+      "persona_id": "P02",
+      "persona_description": "32-year-old male small farmer in Gujarat, ST category, annual income Rs 85,000, BPL.",
+      "human_label": "not_eligible",
+      "pred_status": "eligible",
+      "pred_binary": "eligible",
+      "caveat_count": 3,
+      "passed": [],
+      "failed": [],
+      "missing": [],
+      "caveats": [
+        "Also required: not falling in the above 2 categories",
+        "Also required: submit 14-point declaration",
+        "Not eligible if: male member"
+      ],
+      "label_notes": "Male member from household cannot apply."
+    },
+    {
+      "case_id": "C088",
+      "split": "test",
+      "group": "women_family",
+      "slug": "pmmvy",
+      "scheme": "Pradhan Mantri Matru Vandana Yojana",
+      "persona_id": "P10",
+      "persona_description": "24-year-old pregnant daily-wage woman in Odisha, SC & BPL household, annual income Rs 60,000.",
+      "human_label": "eligible",
+      "pred_status": "not_eligible",
+      "pred_binary": "not_eligible",
+      "caveat_count": 14,
+      "passed": [
+        "age 24 is within the allowed range",
+        "income is within the limit",
+        "gender matches",
+        "social category matches"
+      ],
+      "failed": [
+        "scheme is for: employed"
+      ],
+      "missing": [],
+      "caveats": [
+        "Also required: first live birth",
+        "Also required: second girl child",
+        "Also required: second pregnancy",
+        "Also required: partial disability",
+        "Also required: full disability",
+        "Also required: beneficiary under PMJAY",
+        "Also required: beneficiary under Kisan Samman Nidhi",
+        "Also required: beneficiary under MGNREGA",
+        "Also required: beneficiary under NFSA",
+        "Also required: beneficiary under Ayushman Bharat",
+        "Also required: beneficiary under Pradhan Mantri Jan Aarogya Yojana",
+        "Also required: beneficiary under PMMVY 2.0",
+        "Not eligible if: beneficiary's husband's Aadhaar is not mandatory",
+        "Not eligible if: beneficiary in regular employment with the Central Government or State Government or Public Sector Undertaking or those who are in receipt of similar benefits under any law for the time being in force"
+      ],
+      "label_notes": "24-year-old (>=19) pregnant wage-earning woman from SC/BPL household with income Rs 60,000 (<8,00,000)."
+    }
+  ]
+}

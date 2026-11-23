@@ -9,13 +9,21 @@
     "min_age": 40,
     "max_age": 79,
     "max_annual_income_inr": null,
-    "genders": [],
-    "social_categories": [
-      "EWS"
+    "genders": [
+      "female"
     ],
+    "social_categories": [],
     "occupations": [],
     "requires_disability": null,
+    "min_disability_percent": null,
     "requires_bpl": true,
+    "requires_student": null,
+    "education_stages": [],
+    "marital_statuses": [],
+    "max_land_hectares": null,
+    "excluded_genders": [],
+    "excludes_govt_employee": null,
+    "excludes_income_tax_payer": null,
     "other_conditions": [],
     "exclusions": [
       "remarriage",

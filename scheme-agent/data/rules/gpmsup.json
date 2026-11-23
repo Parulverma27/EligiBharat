@@ -10,10 +10,22 @@
     "max_age": 20,
     "max_annual_income_inr": 250000,
     "genders": [],
-    "social_categories": [],
-    "occupations": [],
+    "social_categories": [
+      "General"
+    ],
+    "occupations": [
+      "student"
+    ],
     "requires_disability": null,
+    "min_disability_percent": null,
     "requires_bpl": null,
+    "requires_student": true,
+    "education_stages": [],
+    "marital_statuses": [],
+    "max_land_hectares": null,
+    "excluded_genders": [],
+    "excludes_govt_employee": null,
+    "excludes_income_tax_payer": null,
     "other_conditions": [
       "students cannot receive other scholarships alongside this one (with some exceptions)"
     ],

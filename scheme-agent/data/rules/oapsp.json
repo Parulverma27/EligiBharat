@@ -6,16 +6,22 @@
   "url": "https://www.myscheme.gov.in/schemes/oapsp",
   "model": "qwen2.5:3b",
   "rules": {
-    "min_age": 65,
+    "min_age": 58,
     "max_age": null,
     "max_annual_income_inr": 60000,
-    "genders": [
-      "male"
-    ],
+    "genders": [],
     "social_categories": [],
     "occupations": [],
     "requires_disability": null,
+    "min_disability_percent": null,
     "requires_bpl": null,
+    "requires_student": null,
+    "education_stages": [],
+    "marital_statuses": [],
+    "max_land_hectares": null,
+    "excluded_genders": [],
+    "excludes_govt_employee": null,
+    "excludes_income_tax_payer": null,
     "other_conditions": [
       "Annual Income of Beneficiary should not be more than Rs. 60,000/- per year",
       "Beneficiary should own any of the below mentioned amount of land :-Maximum 2.5 Acre Nehri or Chahi Land, ORMaximum 5 Acre Barani Land, ORWaterlogged 5 Acre Land"

@@ -9,10 +9,12 @@ from pydantic import BaseModel, Field
 
 Gender = Literal["male", "female", "transgender"]
 Category = Literal["SC", "ST", "OBC", "General", "EWS", "Minority"]
+EducationStage = Literal["school", "pre_matric", "post_matric", "higher_education"]
+MaritalStatus = Literal["single", "married", "widow", "divorced", "separated", "deserted"]
 
 
 class SchemeRules(BaseModel):
-    """Eligibility rules extracted from one scheme's text by the LLM."""
+    """Eligibility rules extracted from one scheme's text by the LLM (v2 with checkable exclusions)."""
     min_age: Optional[int] = Field(None, description="Minimum age in years (inclusive), or null")
     max_age: Optional[int] = Field(None, description="Maximum age in years (inclusive), or null")
     max_annual_income_inr: Optional[int] = Field(
@@ -24,7 +26,23 @@ class SchemeRules(BaseModel):
     occupations: list[str] = Field(
         default_factory=list, description="Required occupation/status as short lowercase words, else []")
     requires_disability: Optional[bool] = Field(None, description="true only if disability is required")
+    min_disability_percent: Optional[int] = Field(
+        None, description="Minimum required disability percentage (e.g. 40 or 80), or null")
     requires_bpl: Optional[bool] = Field(None, description="true only if BPL status is required")
+    requires_student: Optional[bool] = Field(
+        None, description="true if applicant must be a student studying in school/college")
+    education_stages: list[EducationStage] = Field(
+        default_factory=list, description="Required education stage(s) if restricted, else []")
+    marital_statuses: list[MaritalStatus] = Field(
+        default_factory=list, description="Only if restricted to widow/married/divorced/deserted, else []")
+    max_land_hectares: Optional[float] = Field(
+        None, description="Maximum agricultural land holding in hectares if stated, else null")
+    excluded_genders: list[Gender] = Field(
+        default_factory=list, description="Genders explicitly excluded from applying (e.g. ['male'])")
+    excludes_govt_employee: Optional[bool] = Field(
+        None, description="true if government employees / PSU employees are excluded")
+    excludes_income_tax_payer: Optional[bool] = Field(
+        None, description="true if income tax payers are excluded")
     other_conditions: list[str] = Field(
         default_factory=list, description="Important conditions not covered by the fields above")
     exclusions: list[str] = Field(
@@ -40,4 +58,11 @@ class UserProfile(BaseModel):
     categories: list[Category] = Field(default_factory=list)  # a person can be e.g. OBC and Minority
     occupation: Optional[str] = None
     is_disabled: Optional[bool] = None
+    disability_percent: Optional[int] = None
     is_bpl: Optional[bool] = None
+    is_student: Optional[bool] = None
+    education_stage: Optional[EducationStage] = None
+    marital_status: Optional[MaritalStatus] = None
+    land_hectares: Optional[float] = None
+    is_govt_employee: Optional[bool] = None
+    is_income_tax_payer: Optional[bool] = None

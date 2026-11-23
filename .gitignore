@@ -37,3 +37,14 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Next.js & Node
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+out/
+**/out/
+next-env.d.ts
+**/next-env.d.ts
+*.tsbuildinfo

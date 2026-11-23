@@ -1,0 +1,165 @@
+{
+  "summary": {
+    "rules_dir": "d:\\Projects\\EligiBharat\\scheme-agent\\data\\rules",
+    "split_filter": "all",
+    "overall": {
+      "total": 90,
+      "correct": 90,
+      "accuracy": 1.0,
+      "wilson_95_ci": [
+        0.9591,
+        1.0
+      ],
+      "tp_eligible": 33,
+      "tn_not_eligible": 57,
+      "false_not_eligible_count": 0,
+      "false_not_eligible_rate": 0.0,
+      "false_eligible_count": 0,
+      "false_eligible_with_caveats": 0,
+      "possibly_eligible_on_true_eligible": 0,
+      "possibly_eligible_on_true_not_eligible": 0,
+      "need_more_info_count": 0,
+      "precision_eligible": 1.0,
+      "recall_eligible": 1.0,
+      "f1_eligible": 1.0
+    },
+    "by_split": {
+      "dev": {
+        "total": 60,
+        "correct": 60,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.9398,
+          1.0
+        ],
+        "tp_eligible": 23,
+        "tn_not_eligible": 37,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      },
+      "test": {
+        "total": 30,
+        "correct": 30,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.8865,
+          1.0
+        ],
+        "tp_eligible": 10,
+        "tn_not_eligible": 20,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      }
+    },
+    "by_group": {
+      "farmer": {
+        "total": 21,
+        "correct": 21,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.8454,
+          1.0
+        ],
+        "tp_eligible": 9,
+        "tn_not_eligible": 12,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      },
+      "pension": {
+        "total": 30,
+        "correct": 30,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.8865,
+          1.0
+        ],
+        "tp_eligible": 11,
+        "tn_not_eligible": 19,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      },
+      "scholarship": {
+        "total": 30,
+        "correct": 30,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.8865,
+          1.0
+        ],
+        "tp_eligible": 9,
+        "tn_not_eligible": 21,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      },
+      "women_family": {
+        "total": 9,
+        "correct": 9,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.7008,
+          1.0
+        ],
+        "tp_eligible": 4,
+        "tn_not_eligible": 5,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      }
+    },
+    "extraction_review": {
+      "yes": 12,
+      "partly": 12,
+      "no": 6,
+      "unlabeled": 0
+    },
+    "error_count": 0
+  },
+  "errors": []
+}

@@ -1,0 +1,144 @@
+{
+  "summary": {
+    "rules_dir": "d:\\Projects\\EligiBharat\\scheme-agent\\data\\rules",
+    "split_filter": "dev",
+    "overall": {
+      "total": 60,
+      "correct": 60,
+      "accuracy": 1.0,
+      "wilson_95_ci": [
+        0.9398,
+        1.0
+      ],
+      "tp_eligible": 23,
+      "tn_not_eligible": 37,
+      "false_not_eligible_count": 0,
+      "false_not_eligible_rate": 0.0,
+      "false_eligible_count": 0,
+      "false_eligible_with_caveats": 0,
+      "possibly_eligible_on_true_eligible": 0,
+      "possibly_eligible_on_true_not_eligible": 0,
+      "need_more_info_count": 0,
+      "precision_eligible": 1.0,
+      "recall_eligible": 1.0,
+      "f1_eligible": 1.0
+    },
+    "by_split": {
+      "dev": {
+        "total": 60,
+        "correct": 60,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.9398,
+          1.0
+        ],
+        "tp_eligible": 23,
+        "tn_not_eligible": 37,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      }
+    },
+    "by_group": {
+      "farmer": {
+        "total": 12,
+        "correct": 12,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.7575,
+          1.0
+        ],
+        "tp_eligible": 6,
+        "tn_not_eligible": 6,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      },
+      "pension": {
+        "total": 21,
+        "correct": 21,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.8454,
+          1.0
+        ],
+        "tp_eligible": 8,
+        "tn_not_eligible": 13,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      },
+      "scholarship": {
+        "total": 21,
+        "correct": 21,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.8454,
+          1.0
+        ],
+        "tp_eligible": 6,
+        "tn_not_eligible": 15,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      },
+      "women_family": {
+        "total": 6,
+        "correct": 6,
+        "accuracy": 1.0,
+        "wilson_95_ci": [
+          0.6097,
+          1.0
+        ],
+        "tp_eligible": 3,
+        "tn_not_eligible": 3,
+        "false_not_eligible_count": 0,
+        "false_not_eligible_rate": 0.0,
+        "false_eligible_count": 0,
+        "false_eligible_with_caveats": 0,
+        "possibly_eligible_on_true_eligible": 0,
+        "possibly_eligible_on_true_not_eligible": 0,
+        "need_more_info_count": 0,
+        "precision_eligible": 1.0,
+        "recall_eligible": 1.0,
+        "f1_eligible": 1.0
+      }
+    },
+    "extraction_review": {
+      "yes": 12,
+      "partly": 12,
+      "no": 6,
+      "unlabeled": 0
+    },
+    "error_count": 0
+  },
+  "errors": []
+}
