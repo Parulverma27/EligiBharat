@@ -7,7 +7,23 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: [
+          "var(--font-jakarta)",
+          "var(--font-devanagari)",
+          "system-ui",
+          "-apple-system",
+          "sans-serif",
+        ],
+        serif: [
+          "var(--font-playfair)",
+          "var(--font-devanagari)",
+          "Georgia",
+          "serif",
+        ],
+      },
+    },
   },
   plugins: [],
 };

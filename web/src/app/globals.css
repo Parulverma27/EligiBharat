@@ -2,7 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
-  background-color: #f8fafc;
+  background-color: #eef3f9;
   color: #0f172a;
+  font-family: var(--font-jakarta), var(--font-devanagari), system-ui, sans-serif;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+h1,
+h2,
+h3,
+.font-serif {
+  font-family: var(--font-playfair), var(--font-devanagari), Georgia, serif;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }

@@ -1,178 +1,310 @@
 "use client";
 
 import React, { useState } from "react";
-import type { CheckerEvaluation, EligibilityStatus, Language } from "@/types/scheme";
+import {
+  AlertCircle,
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  CheckCircle2,
+  ExternalLink,
+  HelpCircle,
+  Landmark,
+  PlusCircle,
+  XCircle,
+} from "lucide-react";
+import type {
+  CheckerEvaluation,
+  EligibilityStatus,
+  Language,
+  SchemeGroup,
+} from "@/types/scheme";
 
 export interface SchemeCardProps {
   evaluation: CheckerEvaluation;
   language: Language;
 }
 
-const STATUS_STYLES: Record<
+const STATUS_CONFIG: Record<
   EligibilityStatus,
   {
-    badgeBg: string;
-    badgeText: string;
-    border: string;
+    pillBg: string;
+    pillText: string;
     labelEn: string;
     labelHi: string;
+    calloutBg: string;
+    calloutText: string;
+    calloutMsgEn: string;
+    calloutMsgHi: string;
   }
 > = {
   eligible: {
-    badgeBg: "bg-emerald-100 border-emerald-300",
-    badgeText: "text-emerald-800",
-    border: "border-emerald-200",
+    pillBg: "bg-[#D1F2D9] border-[#9CE0AF]",
+    pillText: "text-emerald-900",
     labelEn: "Eligible",
-    labelHi: "पात्र (Eligible)",
+    labelHi: "पात्र",
+    calloutBg: "bg-[#E5F6EB] border-[#BCE8C8]",
+    calloutText: "text-emerald-950",
+    calloutMsgEn: "You are eligible for this scheme.",
+    calloutMsgHi: "आप इस योजना के लिए पात्र हैं।",
   },
   possibly_eligible: {
-    badgeBg: "bg-amber-100 border-amber-300",
-    badgeText: "text-amber-900",
-    border: "border-amber-200",
-    labelEn: "Possibly Eligible — Verify Caveats",
-    labelHi: "संभावित पात्र — शर्तें जांचें",
+    pillBg: "bg-[#FDECC8] border-[#F7D38B]",
+    pillText: "text-amber-900",
+    labelEn: "Possibly Eligible",
+    labelHi: "संभावित पात्र",
+    calloutBg: "bg-[#FEF6E4] border-[#F7D38B]",
+    calloutText: "text-amber-950",
+    calloutMsgEn: "You meet core rules; verify caveats on portal.",
+    calloutMsgHi: "मुख्य नियम पूरे हैं; पोर्टल पर शर्तें जांचें।",
   },
   need_more_info: {
-    badgeBg: "bg-blue-100 border-blue-300",
-    badgeText: "text-blue-800",
-    border: "border-blue-200",
+    pillBg: "bg-[#DCEBFA] border-[#B3D2F5]",
+    pillText: "text-blue-900",
     labelEn: "Need More Info",
-    labelHi: "अधिक जानकारी चाहिए",
+    labelHi: "जानकारी अधूरी",
+    calloutBg: "bg-[#EAF3FC] border-[#C2DBF7]",
+    calloutText: "text-blue-950",
+    calloutMsgEn: "More details required",
+    calloutMsgHi: "पात्रता जांचने हेतु अधिक जानकारी आवश्यक",
   },
   not_eligible: {
-    badgeBg: "bg-slate-100 border-slate-300",
-    badgeText: "text-slate-700",
-    border: "border-slate-200",
+    pillBg: "bg-[#FADCD9] border-[#F4B8B1]",
+    pillText: "text-rose-900",
     labelEn: "Not Eligible",
-    labelHi: "अपात्र (Not Eligible)",
+    labelHi: "अपात्र",
+    calloutBg: "bg-[#FDF0EE] border-[#F4B8B1]",
+    calloutText: "text-rose-950",
+    calloutMsgEn: "Does not match one or more criteria.",
+    calloutMsgHi: "एक या अधिक पात्रता शर्तें मेल नहीं खातीं।",
   },
 };
 
-const GROUP_LABELS: Record<string, { en: string; hi: string }> = {
-  pension: { en: "Pension", hi: "पेंशन" },
-  scholarship: { en: "Scholarship", hi: "छात्रवृत्ति" },
-  farmer: { en: "Farmer & Agriculture", hi: "किसान एवं कृषि" },
-  women_family: { en: "Women & Family", hi: "महिला एवं परिवार" },
+const GROUP_META: Record<
+  SchemeGroup,
+  {
+    en: string;
+    hi: string;
+    pillBg: string;
+    pillText: string;
+    photoUrl: string;
+  }
+> = {
+  pension: {
+    en: "Pension",
+    hi: "पेंशन",
+    pillBg: "bg-[#E6E6FA]",
+    pillText: "text-[#312E81]",
+    photoUrl: "/images/scheme-pension.jpg",
+  },
+  scholarship: {
+    en: "Scholarship",
+    hi: "छात्रवृत्ति",
+    pillBg: "bg-[#DBEAFE]",
+    pillText: "text-[#1E3A8A]",
+    photoUrl: "/images/scheme-scholarship.jpg",
+  },
+  farmer: {
+    en: "Farmer",
+    hi: "किसान",
+    pillBg: "bg-[#DCFCE7]",
+    pillText: "text-[#14532D]",
+    photoUrl: "/images/scheme-pension.jpg",
+  },
+  women_family: {
+    en: "Women & Family",
+    hi: "महिला एवं परिवार",
+    pillBg: "bg-[#FCE7F3]",
+    pillText: "text-[#831843]",
+    photoUrl: "/images/scheme-pension.jpg",
+  },
 };
 
 export function SchemeCard({ evaluation, language }: SchemeCardProps) {
-  const [expanded, setExpanded] = useState(false);
-  const style = STATUS_STYLES[evaluation.status];
-  const grp = GROUP_LABELS[evaluation.group] ?? {
-    en: evaluation.group,
-    hi: evaluation.group,
-  };
+  const [showDetails, setShowDetails] = useState(false);
+  const cfg = STATUS_CONFIG[evaluation.status];
+  const grp = GROUP_META[evaluation.group] ?? GROUP_META.pension;
+
+  // Format 2-3 readable human criteria bullets matching the reference mockup
+  const r = evaluation.rules;
+  const bullets: string[] = [];
+
+  if (r.min_age !== null || r.max_age !== null) {
+    if (r.min_age !== null && r.max_age !== null) {
+      bullets.push(`Age: ${r.min_age}-${r.max_age} years`);
+    } else if (r.min_age !== null) {
+      bullets.push(`Age: ${r.min_age}+ years`);
+    } else if (r.max_age !== null) {
+      bullets.push(`Age: up to ${r.max_age} years`);
+    }
+  } else if (r.requires_student || evaluation.group === "scholarship") {
+    bullets.push("Education: School / Post-Matric / Degree");
+  } else if (r.occupations.length > 0) {
+    bullets.push(`Occupation: ${r.occupations.slice(0, 2).join(", ")}`);
+  }
+
+  bullets.push(
+    `State: ${evaluation.scope_state ?? (language === "hi" ? "संपूर्ण भारत" : "All India")}`
+  );
+
+  if (r.max_annual_income_inr !== null) {
+    bullets.push(
+      `Income: ₹ ${r.max_annual_income_inr.toLocaleString("en-IN")} (within limit)`
+    );
+  } else if (r.social_categories.length > 0) {
+    bullets.push(`Category: ${r.social_categories.join(", ")}`);
+  }
 
   return (
-    <article
-      className={`rounded-xl border ${style.border} bg-white p-4 shadow-sm transition hover:shadow-md`}
-    >
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <div className="space-y-1">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="rounded bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600">
-              {language === "hi" ? grp.hi : grp.en}
+    <article className="rounded-2xl border border-slate-200/90 bg-white p-3.5 shadow-sm transition hover:shadow-md">
+      {/* 1. Top Pill Row: Category Pill + Scope Pill on Left, Status Pill on Right */}
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span
+            className={`rounded-full px-3 py-0.5 text-[11.5px] font-bold ${grp.pillBg} ${grp.pillText}`}
+          >
+            {language === "hi" ? grp.hi : grp.en}
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-0.5 text-[11.5px] font-semibold text-slate-700">
+            <Landmark className="h-3.5 w-3.5 text-[#132F5B]" />
+            <span>
+              {evaluation.scope_state
+                ? evaluation.scope_state
+                : language === "hi"
+                  ? "केंद्र सरकार"
+                  : "Central Government"}
             </span>
-            <span className="rounded bg-indigo-50 px-2 py-0.5 text-[11px] font-medium text-indigo-700">
-              {evaluation.scope_state ? evaluation.scope_state : "Central Govt"}
-            </span>
-          </div>
-          <h3 className="text-sm font-bold text-slate-900 sm:text-base">
-            {evaluation.scheme}
-          </h3>
+          </span>
         </div>
 
         <span
-          className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${style.badgeBg} ${style.badgeText}`}
+          className={`inline-flex items-center gap-1 rounded-full border px-3 py-0.5 text-xs font-extrabold ${cfg.pillBg} ${cfg.pillText}`}
         >
-          {language === "hi" ? style.labelHi : style.labelEn}
+          {evaluation.status === "eligible" && (
+            <CheckCircle2 className="h-3.5 w-3.5 fill-emerald-700 text-white" />
+          )}
+          {evaluation.status === "possibly_eligible" && (
+            <AlertCircle className="h-3.5 w-3.5 fill-amber-600 text-white" />
+          )}
+          {evaluation.status === "need_more_info" && (
+            <PlusCircle className="h-3.5 w-3.5 fill-blue-600 text-white" />
+          )}
+          {evaluation.status === "not_eligible" && (
+            <XCircle className="h-3.5 w-3.5 fill-rose-600 text-white" />
+          )}
+          <span>{language === "hi" ? cfg.labelHi : cfg.labelEn}</span>
+          {evaluation.status === "eligible" && (
+            <Check className="h-3.5 w-3.5 stroke-[3]" />
+          )}
+          {evaluation.status === "need_more_info" && (
+            <HelpCircle className="h-3.5 w-3.5" />
+          )}
         </span>
       </div>
 
-      {/* Deterministic Rule Breakdown Summary */}
-      <div className="mt-3 space-y-1.5 text-xs">
-        {evaluation.passed.length > 0 && (
-          <div className="flex items-start gap-1.5 text-emerald-700">
-            <span className="font-bold">✓</span>
-            <span>
-              <strong>{language === "hi" ? "पूरा किए गए नियम:" : "Passed:"}</strong>{" "}
-              {evaluation.passed.join(" • ")}
-            </span>
-          </div>
-        )}
+      {/* 2. Card Body: Real Cropped Photograph + Title/Bullets + Right Callout Box */}
+      <div className="mt-2.5 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="flex flex-1 items-center gap-3">
+          <img
+            src={grp.photoUrl}
+            alt={evaluation.scheme}
+            className="h-20 w-20 shrink-0 rounded-xl border border-slate-200 object-cover shadow-sm"
+          />
 
-        {evaluation.failed.length > 0 && (
-          <div className="flex items-start gap-1.5 text-rose-700">
-            <span className="font-bold">✗</span>
-            <span>
-              <strong>{language === "hi" ? "अपात्रता का कारण:" : "Failed:"}</strong>{" "}
-              {evaluation.failed.join(" • ")}
-            </span>
-          </div>
-        )}
+          <div className="flex-1 min-w-0">
+            <h3 className="font-serif text-[15px] font-extrabold leading-snug text-[#0F2749]">
+              {evaluation.scheme}
+            </h3>
 
-        {evaluation.missing.length > 0 && (
-          <div className="flex items-start gap-1.5 text-blue-700">
-            <span className="font-bold">?</span>
-            <span>
-              <strong>{language === "hi" ? "आवश्यक जानकारी:" : "Missing facts:"}</strong>{" "}
-              {evaluation.missing.join(", ")}
-            </span>
-          </div>
-        )}
-
-        {evaluation.caveats.length > 0 && (
-          <div className="rounded-lg bg-amber-50/70 border border-amber-200/80 p-2 text-amber-900">
-            <div className="flex items-center justify-between">
-              <span className="font-semibold">
-                ⚠️{" "}
-                {language === "hi"
-                  ? `सत्यापित करने योग्य शर्तें (${evaluation.caveats.length})`
-                  : `Conditions to Verify on Portal (${evaluation.caveats.length})`}
-              </span>
-              {evaluation.caveats.length > 2 && (
-                <button
-                  type="button"
-                  onClick={() => setExpanded(!expanded)}
-                  className="text-[11px] font-semibold text-indigo-700 underline"
-                >
-                  {expanded
-                    ? language === "hi"
-                      ? "कम दिखाएं"
-                      : "Show less"
-                    : language === "hi"
-                      ? "सभी देखें"
-                      : "Show all"}
-                </button>
-              )}
-            </div>
-            <ul className="mt-1 list-disc pl-4 space-y-0.5 text-[11px]">
-              {(expanded ? evaluation.caveats : evaluation.caveats.slice(0, 2)).map(
-                (c, idx) => (
-                  <li key={idx}>{c}</li>
-                )
-              )}
+            <ul className="mt-1.5 space-y-1 text-xs text-slate-800">
+              {bullets.slice(0, 3).map((text, idx) => (
+                <li key={idx} className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 fill-emerald-700 text-white" />
+                  <span className="leading-snug font-medium">{text}</span>
+                </li>
+              ))}
             </ul>
           </div>
-        )}
+        </div>
+
+        {/* Right Status Callout Box */}
+        <div
+          className={`sm:w-44 shrink-0 rounded-xl border ${cfg.calloutBg} px-3 py-2.5 text-center text-xs font-bold leading-snug ${cfg.calloutText}`}
+        >
+          <p>{language === "hi" ? cfg.calloutMsgHi : cfg.calloutMsgEn}</p>
+          {evaluation.missing.length > 0 && (
+            <p className="mt-0.5 text-[11px] font-medium opacity-90">
+              (e.g. {evaluation.missing.slice(0, 2).join(", ")})
+            </p>
+          )}
+        </div>
       </div>
 
-      {/* Footer Link */}
-      <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-2.5 text-xs">
-        <span className="text-[11px] text-slate-400">
-          slug: <code>{evaluation.slug}</code>
-        </span>
+      {/* 3. Footer Row: "View Details ->" on Left, "Verify on myscheme.gov.in ↗" Navy CTA on Right */}
+      <div className="mt-2.5 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-2">
+        <button
+          type="button"
+          onClick={() => setShowDetails(!showDetails)}
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#132F5B] hover:underline"
+        >
+          <ExternalLink className="h-3.5 w-3.5" />
+          <span>
+            {showDetails
+              ? language === "hi"
+                ? "विवरण छुपाएं"
+                : "Hide Details"
+              : language === "hi"
+                ? "विवरण देखें"
+                : "View Details"}
+          </span>
+          <ArrowRight className="h-3.5 w-3.5" />
+        </button>
+
         <a
           href={evaluation.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 font-semibold text-indigo-600 hover:text-indigo-800"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-[#132F5B] px-3.5 py-1.5 text-xs font-bold text-white shadow-sm hover:bg-[#0F2749] transition"
         >
-          {language === "hi"
-            ? "आधिकारिक पोर्टल (myscheme.gov.in) ↗"
-            : "Official Scheme Page (myscheme.gov.in) ↗"}
+          <span>
+            {language === "hi"
+              ? "myscheme.gov.in पर सत्यापित करें"
+              : "Verify on myscheme.gov.in"}
+          </span>
+          <ArrowUpRight className="h-3.5 w-3.5" />
         </a>
       </div>
+
+      {/* 4. Expandable Full Rule & Caveat Details Drawer */}
+      {showDetails && (
+        <div className="mt-2.5 space-y-1.5 rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs">
+          {evaluation.passed.length > 0 && (
+            <div className="text-emerald-800">
+              <strong>Passed:</strong> {evaluation.passed.join(" • ")}
+            </div>
+          )}
+          {evaluation.failed.length > 0 && (
+            <div className="text-rose-800">
+              <strong>Failed:</strong> {evaluation.failed.join(" • ")}
+            </div>
+          )}
+          {evaluation.missing.length > 0 && (
+            <div className="text-blue-800">
+              <strong>Missing facts:</strong> {evaluation.missing.join(", ")}
+            </div>
+          )}
+          {evaluation.caveats.length > 0 && (
+            <div className="text-amber-900">
+              <strong>Caveats to verify on official portal:</strong>
+              <ul className="mt-1 list-disc pl-4 space-y-0.5 text-[11px]">
+                {evaluation.caveats.map((c, idx) => (
+                  <li key={idx}>{c}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
     </article>
   );
 }
