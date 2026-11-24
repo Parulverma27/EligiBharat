@@ -51,10 +51,10 @@ export default function HomePage() {
       {/* 2. Civic Hero Banner with Sansad Bhavan & Trust Badges */}
       <HeroBanner language={language} />
 
-      {/* 3. Three-Column Interactive Workspace */}
+      {/* 3. Three-Column Interactive Workspace Anchored Smoothly into Hero */}
       <main
         id="workspace"
-        className="mx-auto w-full max-w-[1400px] flex-1 px-4 py-5 sm:px-6"
+        className="relative z-20 mx-auto -mt-5 w-full max-w-[1440px] flex-1 px-4 pb-6 sm:px-6"
       >
         <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12">
           {/* Left Column (3 cols): AI Chat Assistant with Robot Mascot */}

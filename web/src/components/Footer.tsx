@@ -20,9 +20,9 @@ export function Footer({ language }: FooterProps) {
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/" className="flex items-center gap-2">
             <img
-              src="/images/footer-chakra.png"
+              src="/images/logo-emblem.svg"
               alt="Ashoka Chakra Emblem"
-              className="h-7 w-auto object-contain"
+              className="h-8 w-auto object-contain brightness-110"
             />
             <span className="font-serif text-lg font-extrabold tracking-tight">
               <span className="text-white">Eligi</span>

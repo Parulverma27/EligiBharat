@@ -109,12 +109,12 @@ export function Navbar({
       </div>
 
       {/* 2. Taller Main White Navigation Bar */}
-      <div className="bg-[#F9FBFD] border-b border-slate-200 px-6 py-4 sm:py-5">
+      <div className="bg-white border-b border-slate-200 px-6 py-4 sm:py-5">
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-6">
-          {/* Left: Real Cropped Tricolor Ashoka Chakra Emblem + EligiBharat Wordmark */}
+          {/* Left: Razor-Sharp High-Resolution Vector Ashoka Chakra & Tricolor Wave Emblem + EligiBharat Wordmark */}
           <Link href="/" className="flex items-center gap-3.5">
             <img
-              src="/images/logo-emblem.png"
+              src="/images/logo-emblem.svg"
               alt="EligiBharat Ashoka Chakra Emblem"
               className="h-14 sm:h-16 w-auto object-contain"
             />

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -8,6 +9,11 @@ import {
   ChevronUp,
   HelpCircle,
   MessageCircleMore,
+  Search,
+  Shield,
+  Cpu,
+  Scale,
+  BookOpen,
 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -74,16 +80,34 @@ const FAQ_ITEMS: FaqItem[] = [
   },
 ];
 
+const CATEGORIES = [
+  { id: "all" as const, en: "All Questions", hi: "सभी प्रश्न", icon: BookOpen },
+  { id: "general" as const, en: "General", hi: "सामान्य", icon: HelpCircle },
+  { id: "eligibility" as const, en: "Eligibility Logic", hi: "पात्रता नियम", icon: Scale },
+  { id: "privacy" as const, en: "Privacy & Safety", hi: "गोपनीयता", icon: Shield },
+  { id: "technical" as const, en: "Technical & Schemes", hi: "तकनीकी", icon: Cpu },
+];
+
 export default function FaqPage() {
   const [language, setLanguage] = useState<Language>("en");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [activeCat, setActiveCat] = useState<
     "all" | "general" | "eligibility" | "privacy" | "technical"
   >("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filtered = FAQ_ITEMS.filter(
-    (item) => activeCat === "all" || item.category === activeCat
-  );
+  const filtered = FAQ_ITEMS.filter((item) => {
+    const catMatch = activeCat === "all" || item.category === activeCat;
+    if (!searchQuery.trim()) return catMatch;
+    const q = searchQuery.toLowerCase();
+    return (
+      catMatch &&
+      (item.qEn.toLowerCase().includes(q) ||
+        item.aEn.toLowerCase().includes(q) ||
+        item.qHi.includes(searchQuery) ||
+        item.aHi.includes(searchQuery))
+    );
+  });
 
   return (
     <div className="min-h-screen flex flex-col bg-[#EEF3F9]">
@@ -93,114 +117,188 @@ export default function FaqPage() {
         totalSchemes={SCHEMES_DATA.length}
       />
 
-      {/* Page Hero */}
-      <section className="border-b border-slate-200 bg-gradient-to-r from-[#0F2749] via-[#132F5B] to-[#1E3A8A] text-white py-10 px-4">
-        <div className="mx-auto max-w-[1000px]">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden border-b border-slate-200">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/user-parliament.jpg"
+            alt="Parliament House, New Delhi"
+            fill
+            className="object-cover object-[center_47%] scale-[1.05] brightness-[0.3] saturate-[1.1]"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F2749]/95 via-[#132F5B]/85 to-[#1E3A8A]/70" />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-[1000px] px-4 py-16 sm:py-20">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-400/20 border border-amber-400/40 px-3.5 py-1 text-xs font-bold text-amber-300">
             <HelpCircle className="h-4 w-4" />
             <span>
               {language === "hi"
-                ? "अक्सर पूछे जाने वाले प्रश्न (FAQ)"
+                ? "अक्सर पूछे जाने वाले प्रश्न"
                 : "Frequently Asked Questions"}
             </span>
           </span>
-          <h1 className="mt-3 font-serif text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <h1 className="mt-4 font-serif text-4xl font-extrabold tracking-tight text-white sm:text-5xl leading-[1.1]">
             {language === "hi"
               ? "आपके प्रश्नों के स्पष्ट उत्तर"
               : "Frequently Asked Questions"}
           </h1>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-200 sm:text-base">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg">
             {language === "hi"
               ? "EligiBharat की पात्रता जांच, डेटा गोपनीयता और स्थानीय AI मॉडल के बारे में सामान्य प्रश्न।"
               : "Everything you need to know about how EligiBharat checks scheme eligibility, protects your privacy, and runs locally."}
           </p>
+
+          {/* Search Bar */}
+          <div className="mt-8 max-w-lg">
+            <div className="flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 py-2.5 backdrop-blur-sm focus-within:border-amber-400/60 focus-within:bg-white/15 transition">
+              <Search className="h-4 w-4 text-slate-300" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setOpenIndex(0);
+                }}
+                placeholder={
+                  language === "hi"
+                    ? "प्रश्न खोजें..."
+                    : "Search questions..."
+                }
+                className="w-full bg-transparent text-sm text-white placeholder-slate-400 outline-none"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       <main className="mx-auto w-full max-w-[1000px] flex-1 space-y-6 px-4 py-8 sm:px-6">
         {/* Category Filter Pills */}
         <div className="flex flex-wrap gap-2">
-          {(
-            [
-              { id: "all", en: "All Questions (7)", hi: "सभी प्रश्न (7)" },
-              { id: "general", en: "General", hi: "सामान्य" },
-              {
-                id: "eligibility",
-                en: "Eligibility Logic",
-                hi: "पात्रता नियम",
-              },
-              { id: "privacy", en: "Privacy & Safety", hi: "गोपनीयता और सुरक्षा" },
-              {
-                id: "technical",
-                en: "Technical & Schemes",
-                hi: "तकनीकी और योजनाएं",
-              },
-            ] as const
-          ).map((tab) => (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => {
-                setActiveCat(tab.id);
-                setOpenIndex(0);
-              }}
-              className={`rounded-full px-4 py-1.5 text-xs font-bold shadow-sm transition ${
-                activeCat === tab.id
-                  ? "bg-[#132F5B] text-white"
-                  : "border border-slate-200 bg-white text-[#0F2749] hover:bg-slate-50"
-              }`}
-            >
-              {language === "hi" ? tab.hi : tab.en}
-            </button>
-          ))}
-        </div>
-
-        {/* Accordion List */}
-        <div className="space-y-3">
-          {filtered.map((item, idx) => {
-            const isOpen = openIndex === idx;
+          {CATEGORIES.map((tab) => {
+            const Icon = tab.icon;
+            const count =
+              tab.id === "all"
+                ? FAQ_ITEMS.length
+                : FAQ_ITEMS.filter((i) => i.category === tab.id).length;
             return (
-              <div
-                key={idx}
-                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => {
+                  setActiveCat(tab.id);
+                  setOpenIndex(0);
+                }}
+                className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold shadow-sm transition ${
+                  activeCat === tab.id
+                    ? "bg-[#132F5B] text-white shadow-md"
+                    : "border border-slate-200 bg-white text-[#0F2749] hover:bg-slate-50"
+                }`}
               >
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                <Icon className="h-3.5 w-3.5" />
+                <span>{language === "hi" ? tab.hi : tab.en}</span>
+                <span
+                  className={`ml-1 rounded-full px-1.5 py-0.5 text-[10px] font-bold ${
+                    activeCat === tab.id
+                      ? "bg-white/20 text-white"
+                      : "bg-slate-100 text-slate-500"
+                  }`}
                 >
-                  <span className="font-serif text-base font-extrabold text-[#0F2749] sm:text-lg">
-                    {language === "hi" ? item.qHi : item.qEn}
-                  </span>
-                  {isOpen ? (
-                    <ChevronUp className="h-5 w-5 shrink-0 text-[#132F5B]" />
-                  ) : (
-                    <ChevronDown className="h-5 w-5 shrink-0 text-slate-400" />
-                  )}
-                </button>
-                {isOpen && (
-                  <div className="border-t border-slate-100 bg-slate-50/70 px-5 py-4 text-xs leading-relaxed text-slate-700 sm:text-sm">
-                    {language === "hi" ? item.aHi : item.aEn}
-                  </div>
-                )}
-              </div>
+                  {count}
+                </span>
+              </button>
             );
           })}
         </div>
 
+        {/* Accordion List */}
+        <div className="space-y-3">
+          {filtered.length === 0 ? (
+            <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center shadow-sm">
+              <Search className="mx-auto h-10 w-10 text-slate-300" />
+              <p className="mt-3 text-sm font-bold text-slate-500">
+                {language === "hi"
+                  ? "कोई प्रश्न नहीं मिला।"
+                  : "No questions match your search."}
+              </p>
+            </div>
+          ) : (
+            filtered.map((item, idx) => {
+              const isOpen = openIndex === idx;
+              const catConfig = CATEGORIES.find(
+                (c) => c.id === item.category
+              );
+              return (
+                <div
+                  key={idx}
+                  className={`overflow-hidden rounded-2xl border bg-white shadow-sm transition ${
+                    isOpen
+                      ? "border-[#132F5B]/30 shadow-md"
+                      : "border-slate-200 hover:border-slate-300"
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : idx)}
+                    className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  >
+                    <div className="flex items-center gap-3">
+                      {catConfig && (
+                        <span
+                          className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ${
+                            isOpen
+                              ? "bg-[#132F5B] text-white"
+                              : "bg-slate-100 text-slate-500"
+                          } transition`}
+                        >
+                          <catConfig.icon className="h-3.5 w-3.5" />
+                        </span>
+                      )}
+                      <span className="font-serif text-base font-extrabold text-[#0F2749] sm:text-lg">
+                        {language === "hi" ? item.qHi : item.qEn}
+                      </span>
+                    </div>
+                    <div
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition ${
+                        isOpen
+                          ? "bg-[#132F5B] text-white"
+                          : "bg-slate-100 text-slate-400"
+                      }`}
+                    >
+                      {isOpen ? (
+                        <ChevronUp className="h-4 w-4" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4" />
+                      )}
+                    </div>
+                  </button>
+                  {isOpen && (
+                    <div className="border-t border-slate-100 bg-gradient-to-b from-slate-50 to-white px-6 py-5">
+                      <p className="text-sm leading-relaxed text-slate-700">
+                        {language === "hi" ? item.aHi : item.aEn}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })
+          )}
+        </div>
+
         {/* Bottom CTA */}
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-amber-200 bg-[#FFF8EB] p-6 shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#132F5B] text-white">
-              <MessageCircleMore className="h-5 w-5" />
+        <div className="flex flex-wrap items-center justify-between gap-5 rounded-2xl border border-amber-200 bg-gradient-to-r from-[#FFF8EB] to-[#FEF3CD] p-7 shadow-sm">
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#132F5B] text-white shadow-md">
+              <MessageCircleMore className="h-6 w-6" />
             </div>
             <div>
-              <h3 className="font-serif text-lg font-extrabold text-[#0F2749]">
+              <h3 className="font-serif text-lg font-extrabold text-[#0F2749] sm:text-xl">
                 {language === "hi"
                   ? "कोई अन्य प्रश्न है या नियम में त्रुटि मिली?"
                   : "Still have a question or spotted an extraction bug?"}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600">
+              <p className="mt-1 text-sm text-slate-600">
                 {language === "hi"
                   ? "संपर्क पृष्ठ के माध्यम से हमें बताएं या सीधे पात्रता जांचें।"
                   : "Reach out on our Contact page or test your profile on the Home screen."}
@@ -211,13 +309,13 @@ export default function FaqPage() {
           <div className="flex flex-wrap gap-2.5">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-1.5 rounded-full border border-[#132F5B] bg-white px-4 py-2 text-xs font-bold text-[#132F5B] hover:bg-slate-50 transition"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#132F5B] bg-white px-5 py-2.5 text-sm font-bold text-[#132F5B] hover:bg-slate-50 transition shadow-sm"
             >
               <span>{language === "hi" ? "संपर्क करें" : "Contact Us"}</span>
             </Link>
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#132F5B] px-5 py-2 text-xs font-bold text-white shadow-sm hover:bg-[#0F2749] transition"
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#132F5B] px-6 py-2.5 text-sm font-bold text-white shadow-md hover:bg-[#0F2749] transition"
             >
               <span>
                 {language === "hi" ? "पात्रता जांचें" : "Check Eligibility"}
