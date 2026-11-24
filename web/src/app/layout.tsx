@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import {
-  Noto_Sans_Devanagari,
   Playfair_Display,
   Plus_Jakarta_Sans,
 } from "next/font/google";
@@ -17,13 +16,6 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-jakarta",
-  display: "swap",
-});
-
-const devanagari = Noto_Sans_Devanagari({
-  subsets: ["devanagari"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-devanagari",
   display: "swap",
 });
 
@@ -66,7 +58,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${jakarta.variable} ${devanagari.variable}`}
+      className={`${playfair.variable} ${jakarta.variable}`}
       suppressHydrationWarning
     >
       <head>
